@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ESEMA | Diseño y Desarrollo Web</title>
+  <meta name="description" content="ESEMA crea páginas web modernas, minimalistas y profesionales para negocios que quieren crecer." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#020617',
+            accent: '#3b82f6',
+            muted: '#94a3b8'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Animaciones base -->
+  <style>
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(.19,1,.22,1);
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-primary font-sans overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+      <span class="font-semibold tracking-widest">ESEMA</span>
+      <ul class="hidden md:flex gap-12 text-sm">
+        <li><a href="#servicios" class="hover:text-accent transition">Servicios</a></li>
+        <li><a href="#proyectos" class="hover:text-accent transition">Proyectos</a></li>
+        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO PREMIUM -->
+  <section class="relative min-h-screen flex items-center pt-32">
+
+    <!-- Fondo -->
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80"
+         class="absolute inset-0 w-full h-full object-cover" />
+
+    <!-- Overlay degradado -->
+    <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white"></div>
+
+    <!-- Contenido -->
+    <div class="relative max-w-7xl mx-auto px-8">
+      <div class="max-w-4xl fade">
+        <span class="uppercase text-xs tracking-widest text-muted">Estudio digital</span>
+        <h1 class="mt-4 text-5xl md:text-7xl font-bold leading-tight">
+          Tu negocio merece
+          <span class="text-accent">verse profesional</span>
+        </h1>
+        <p class="mt-8 text-xl text-muted max-w-2xl">
+          Diseñamos y desarrollamos sitios web modernos y minimalistas que transmiten confianza y convierten visitas en clientes.
+        </p>
+        <div class="mt-12">
+          <a href="#servicios" class="bg-accent text-white px-8 py-4 rounded-2xl text-sm hover:bg-blue-700 transition">
+            Ver cómo trabajamos
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-40 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-semibold fade">Lo que hacemos</h2>
+      <div class="mt-24 grid md:grid-cols-3 gap-16">
+
+        <div class="fade">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
+          <h3 class="font-semibold text-xl">Identidad digital</h3>
+          <p class="mt-4 text-muted">Creamos una presencia online clara y coherente con tu negocio.</p>
+        </div>
+
+        <div class="fade">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
+          <h3 class="font-semibold text-xl">Diseño UX/UI</h3>
+          <p class="mt-4 text-muted">Diseños simples, elegantes y pensados para el usuario.</p>
+        </div>
+
+        <div class="fade">
+          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
+          <h3 class="font-semibold text-xl">Desarrollo web</h3>
+          <p class="mt-4 text-muted">Sitios rápidos, optimizados y fáciles de mantener.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="py-40">
+    <div class="max-w-7xl mx-auto px-8">
+        <a href="restaurant-demo.html" target="_blank">                                                                                                                                                                                                             
+      <h2 class="text-4xl font-semibold fade">Ejemplos de proyectos</h2>
+      <p class="mt-6 text-muted fade max-w-2xl">
+        Ejemplos conceptuales de sitios desarrollados. Al hacer clic podés ver cómo podría verse un proyecto real terminado.
+      </p>
+
+      <div class="mt-24 grid md:grid-cols-3 gap-16">
+
+        <a href="restaurant.html" target="_blank" class="fade group block">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" class="rounded-3xl group-hover:scale-105 transition" />
+          <h3 class="mt-6 font-semibold">Restaurante</h3>
+          <p class="mt-2 text-sm text-muted">Carta online, reservas y presencia profesional.</p>
+        </a>
+
+        <a href="gym.html" target="_blank" class="fade group block">
+          <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=700&q=80" class="rounded-3xl group-hover:scale-105 transition" />
+          <h3 class="mt-6 font-semibold">Gimnasio</h3>
+          <p class="mt-2 text-sm text-muted">Planes, horarios y captación de clientes.</p>
+        </a>
+
+        <a href="construction.html" target="_blank" class="fade group block">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=80" class="rounded-3xl group-hover:scale-105 transition" />
+          <h3 class="mt-6 font-semibold">Construcciones</h3>
+          <p class="mt-2 text-sm text-muted">Proyectos, obras y contacto corporativo.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-40 bg-primary text-white">
+    <div class="max-w-5xl mx-auto px-8 text-center fade">
+      <h2 class="text-4xl font-semibold">Hablemos de tu proyecto</h2>
+      <p class="mt-6 text-muted max-w-xl mx-auto">
+        Si querés una web profesional para tu negocio, escribinos y vemos cómo ayudarte.
+      </p>
+      <div class="mt-10">
+        <a href="mailto:contacto@esema.com" class="inline-block bg-accent text-white px-10 py-4 rounded-2xl text-sm hover:bg-blue-700 transition">
+          contacto@esema.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-sm text-muted">
+    © 2025 ESEMA · Estudio digital
+  </footer>
+
+  <!-- JS Animaciones -->
+  <script>
+    const faders = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.15 });
+    faders.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

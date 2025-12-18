@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pulse Gym | Entrená tu mejor versión</title>
+  <meta name="description" content="Pulse Gym es un gimnasio moderno enfocado en fuerza, rendimiento y bienestar." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#020617',
+            accent: '#22c55e',
+            muted: '#94a3b8'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Animaciones -->
+  <style>
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(.19,1,.22,1);
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-primary text-white font-sans overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50 bg-primary/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+      <span class="font-bold tracking-widest">PULSE GYM</span>
+      <ul class="hidden md:flex gap-12 text-sm">
+        <li><a href="#planes" class="hover:text-accent transition">Planes</a></li>
+        <li><a href="#sobre" class="hover:text-accent transition">Nosotros</a></li>
+        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center pt-32">
+    <img
+      src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=1600&q=80"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative max-w-7xl mx-auto px-8">
+      <div class="max-w-3xl fade">
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+          Entrená<br />
+          <span class="text-accent">tu mejor versión</span>
+        </h1>
+        <p class="mt-8 text-lg text-muted">
+          Fuerza, disciplina y constancia. Un espacio diseñado para superar tus límites.
+        </p>
+        <div class="mt-12">
+          <a
+            href="#planes"
+            class="bg-accent text-primary px-8 py-4 rounded-2xl text-sm font-semibold hover:bg-green-400 transition"
+          >
+            Ver planes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="py-32">
+    <div class="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade">
+        <h2 class="text-3xl font-semibold">Más que un gimnasio</h2>
+        <p class="mt-6 text-muted">
+          En Pulse Gym entrenamos cuerpo y mente. Nuestro enfoque combina entrenamiento de fuerza,
+          acondicionamiento y bienestar general.
+        </p>
+        <ul class="mt-6 space-y-2 text-muted">
+          <li>• Equipamiento de última generación</li>
+          <li>• Entrenadores certificados</li>
+          <li>• Ambiente motivador</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6 fade">
+        <img
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80"
+          class="rounded-3xl"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=80"
+          class="rounded-3xl"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80"
+          class="rounded-3xl col-span-2"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section id="planes" class="py-32 bg-white text-primary">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-semibold fade">Planes</h2>
+
+      <div class="mt-20 grid md:grid-cols-3 gap-12">
+
+        <div class="fade border border-gray-200 rounded-3xl p-10">
+          <h3 class="font-semibold text-xl">Básico</h3>
+          <p class="mt-4 text-muted">Acceso libre al gimnasio</p>
+          <p class="mt-6 text-3xl font-bold">$15.000</p>
+        </div>
+
+        <div class="fade border-2 border-accent rounded-3xl p-10">
+          <h3 class="font-semibold text-xl">Pro</h3>
+          <p class="mt-4 text-muted">Clases + seguimiento</p>
+          <p class="mt-6 text-3xl font-bold">$22.000</p>
+        </div>
+
+        <div class="fade border border-gray-200 rounded-3xl p-10">
+          <h3 class="font-semibold text-xl">Elite</h3>
+          <p class="mt-4 text-muted">Plan personalizado</p>
+          <p class="mt-6 text-3xl font-bold">$30.000</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-32">
+    <div class="max-w-5xl mx-auto px-8 text-center fade">
+      <h2 class="text-4xl font-semibold">Sumate hoy</h2>
+      <p class="mt-6 text-muted">Av. Siempre Viva 742 · Buenos Aires</p>
+      <p class="mt-4">📲 WhatsApp: +54 9 11 4444 5555</p>
+      <p class="mt-2">✉️ contacto@pulsegym.com</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-sm text-muted border-t border-white/10">
+    © 2025 Pulse Gym
+  </footer>
+
+  <!-- JS Animaciones -->
+  <script>
+    const faders = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
