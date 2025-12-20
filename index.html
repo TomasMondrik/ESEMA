@@ -35,23 +35,23 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Uniformar tamaño de imágenes en servicios y proyectos */
+    /* Uniformar tamaño de imágenes en servicios y proyectos
+       Use aspect-ratio instead of fixed heights so images are
+       responsive and fill the card width on mobile devices. */
     #servicios img,
     #proyectos img {
       width: 100%;
-      height: 220px;
+      height: auto;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
+      object-position: center center;
       display: block;
     }
-    /* Ajustes para móvil: reducir altura y centrar el recorte de las imágenes */
+    /* Ajustes para móvil: mantener aspecto más vertical si hace falta */
     @media (max-width: 767px) {
       #servicios img,
       #proyectos img {
-        height: 140px;
-      }
-      #servicios img,
-      #proyectos img {
-        object-position: center center;
+        aspect-ratio: 4 / 3;
       }
     }
   </style>
