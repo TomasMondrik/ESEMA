@@ -35,6 +35,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
     /* Uniformar tamaño de imágenes en servicios y proyectos
        Use aspect-ratio instead of fixed heights so images are
        responsive and fill the card width on mobile devices. */
@@ -65,17 +72,33 @@
       <span class="font-semibold tracking-widest">ESEMA</span>
       <ul class="hidden md:flex gap-12 text-sm">
         <li><a href="#servicios" class="hover:text-accent transition">Servicios</a></li>
+        <li><a href="#beneficios" class="hover:text-accent transition">Beneficios</a></li>
         <li><a href="#proyectos" class="hover:text-accent transition">Proyectos</a></li>
         <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
       </ul>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <ul class="flex flex-col gap-4 px-8 py-4 text-sm">
+        <li><a href="#servicios" class="hover:text-accent transition">Servicios</a></li>
+        <li><a href="#beneficios" class="hover:text-accent transition">Beneficios</a></li>
+        <li><a href="#proyectos" class="hover:text-accent transition">Proyectos</a></li>
+        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+      </ul>
+    </div>
   </header>
 
   <!-- HERO PREMIUM -->
   <section class="relative min-h-screen flex items-center pt-32">
 
     <!-- Fondo -->
-    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80"
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80"
          class="absolute inset-0 w-full h-full object-cover" />
 
     <!-- Overlay degradado -->
@@ -86,15 +109,15 @@
       <div class="max-w-4xl fade">
         <span class="uppercase text-xs tracking-widest text-muted">Estudio digital</span>
         <h1 class="mt-4 text-5xl md:text-7xl font-bold leading-tight">
-          Tu negocio merece
-          <span class="text-accent">verse profesional</span>
+          Sitios web que
+          <span class="text-accent">convierten</span>
         </h1>
         <p class="mt-8 text-xl text-muted max-w-2xl">
-          Diseñamos y desarrollamos sitios web modernos y minimalistas que transmiten confianza y convierten visitas en clientes.
+          Diseños modernos y desarrollo profesional. Resultados que importan.
         </p>
         <div class="mt-12">
-          <a href="#servicios" class="bg-accent text-white px-8 py-4 rounded-2xl text-sm hover:bg-blue-700 transition">
-            Ver cómo trabajamos
+          <a href="#beneficios" class="bg-accent text-white px-8 py-4 rounded-2xl text-sm hover:bg-blue-700 transition">
+            Ver beneficios
           </a>
         </div>
       </div>
@@ -104,37 +127,109 @@
   <!-- SERVICIOS -->
   <section id="servicios" class="py-40 bg-gray-50">
     <div class="max-w-7xl mx-auto px-8">
-      <h2 class="text-4xl font-semibold fade">Lo que hacemos</h2>
-      <div class="mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
+      <h2 class="text-4xl font-semibold fade text-center">Nuestros Servicios</h2>
+      <div class="mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-        <div class="fade">
-          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
-          <h3 class="font-semibold text-xl">Identidad digital</h3>
-          <p class="mt-4 text-muted">Creamos una presencia online clara y coherente con tu negocio.</p>
+        <!-- Servicio 1 -->
+        <div class="fade group relative">
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl p-10 hover-lift shadow-lg hover:shadow-2xl transition-all duration-500 border border-blue-200/50">
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold text-lg">1</div>
+            <div class="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-accent/30 transition-colors">
+              <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-center mb-6 text-gray-800">Estrategia Digital</h3>
+            <p class="text-gray-600 text-center leading-relaxed text-lg">Definimos tu presencia online y objetivos claros para maximizar resultados.</p>
+          </div>
         </div>
 
-        <div class="fade">
-          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
-          <h3 class="font-semibold text-xl">Diseño UX/UI</h3>
-          <p class="mt-4 text-muted">Diseños simples, elegantes y pensados para el usuario.</p>
+        <!-- Servicio 2 -->
+        <div class="fade group relative">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-100 rounded-3xl p-10 hover-lift shadow-lg hover:shadow-2xl transition-all duration-500 border border-purple-200/50">
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold text-lg">2</div>
+            <div class="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-accent/30 transition-colors">
+              <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-center mb-6 text-gray-800">Diseño Creativo</h3>
+            <p class="text-gray-600 text-center leading-relaxed text-lg">Creamos interfaces visuales impactantes que conectan con tu audiencia.</p>
+          </div>
         </div>
 
-        <div class="fade">
-          <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=600&q=80" class="rounded-3xl mb-6" />
-          <h3 class="font-semibold text-xl">Desarrollo web</h3>
-          <p class="mt-4 text-muted">Sitios rápidos, optimizados y fáciles de mantener.</p>
+        <!-- Servicio 3 -->
+        <div class="fade group relative">
+          <div class="bg-gradient-to-br from-green-50 to-teal-100 rounded-3xl p-10 hover-lift shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-200/50">
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold text-lg">3</div>
+            <div class="w-20 h-20 bg-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:bg-accent/30 transition-colors">
+              <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="font-bold text-2xl text-center mb-6 text-gray-800">Desarrollo Técnico</h3>
+            <p class="text-gray-600 text-center leading-relaxed text-lg">Construimos sitios robustos, rápidos y escalables con las mejores tecnologías.</p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-<!-- PROYECTOS -->
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="py-40">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-semibold fade text-center">Por qué elegir ESEMA</h2>
+      <div class="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16">
+
+        <div class="fade text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl">Entrega rápida</h3>
+          <p class="mt-4 text-muted">De idea a sitio en 2 semanas.</p>
+        </div>
+
+        <div class="fade text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl">Calidad garantizada</h3>
+          <p class="mt-4 text-muted">Tecnologías modernas y soporte.</p>
+        </div>
+
+        <div class="fade text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl">Enfoque personalizado</h3>
+          <p class="mt-4 text-muted">Cada proyecto es único.</p>
+        </div>
+
+        <div class="fade text-center">
+          <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-xl">Resultados medibles</h3>
+          <p class="mt-4 text-muted">Aumenta tus ventas online.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 <section id="proyectos" class="py-40">
   <div class="max-w-7xl mx-auto px-8">
-    <h2 class="text-4xl font-semibold fade">Proyectos destacados</h2>
+    <h2 class="text-4xl font-semibold fade">Proyectos</h2>
     <p class="mt-6 text-muted fade max-w-2xl text-sm md:text-base">
-      Algunas de las páginas web que ya creamos, para que veas cómo trabajamos.
+      Ejemplos de nuestro trabajo.
     </p>
 
     <div class="mt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
@@ -149,7 +244,7 @@
           <div class="px-2">
             <h3 class="font-semibold">Restaurante</h3>
             <p class="mt-2 text-sm text-muted">
-              Carta online, reservas y presencia profesional.
+              Carta online y reservas.
             </p>
           </div>
         </div>
@@ -165,7 +260,7 @@
           <div class="px-2">
             <h3 class="font-semibold">Gimnasio</h3>
             <p class="mt-2 text-sm text-muted">
-              Planes, horarios y captación de clientes.
+              Planes y captación de clientes.
             </p>
           </div>
         </div>
@@ -181,7 +276,7 @@
           <div class="px-2">
             <h3 class="font-semibold">Construcciones</h3>
             <p class="mt-2 text-sm text-muted">
-              Proyectos, obras y contacto corporativo.
+              Proyectos y contacto corporativo.
             </p>
           </div>
         </div>
@@ -189,35 +284,58 @@
 
     </div>
 
-    <h2 class="mt-24 text-2xl md:text-4xl font-semibold fade text-center">
-      Hacé click en una imagen para visitar la página
-    </h2>
+    <div class="mt-24 text-center fade">
+      <p class="text-muted">Haz clic en una imagen para ver el sitio completo</p>
+    </div>
   </div>
 </section>
-
-    </div>
-  </section>
 
   <!-- CTA FINAL -->
   <section class="py-40 bg-primary text-white">
     <div class="max-w-5xl mx-auto px-8 text-center fade">
-      <h2 class="text-4xl font-semibold">Hablemos de tu proyecto</h2>
+      <h2 class="text-4xl font-semibold">Listo para empezar</h2>
       <p class="mt-6 text-muted max-w-xl mx-auto">
-        Si querés una web profesional para tu negocio, escribinos y vemos cómo ayudarte.
+        Conversemos sobre tu proyecto.
       </p>
       <div class="mt-10">
-        <div class="flex justify-center gap-4">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=esemaweb@gmail.com" target="_blank" rel="noopener" class="inline-block bg-blue-700 text-white border border-accent px-6 py-3 rounded-2xl text-sm hover:bg-blue-600 transition">
-            esemaweb@gmail.com
-          </a>
-        </div>
+        <a href="mailto:esemaweb@gmail.com" class="bg-accent text-white px-8 py-4 rounded-2xl text-sm hover:bg-blue-700 transition">
+          Contactar ahora
+        </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-10 text-center text-sm text-muted">
-    © 2025 ESEMA · Estudio digital
+  <footer class="py-12 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <span class="font-semibold tracking-widest text-lg">ESEMA</span>
+          <p class="mt-4 text-gray-400 text-sm">
+            Sitios web que convierten.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Enlaces</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#servicios" class="hover:text-accent transition">Servicios</a></li>
+            <li><a href="#beneficios" class="hover:text-accent transition">Beneficios</a></li>
+            <li><a href="#proyectos" class="hover:text-accent transition">Proyectos</a></li>
+            <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>esemaweb@gmail.com</li>
+            <li>Buenos Aires, Argentina</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+        © 2026 ESEMA
+      </div>
+    </div>
   </footer>
 
   <!-- JS Animaciones -->
@@ -229,6 +347,15 @@
       });
     }, { threshold: 0.15 });
     faders.forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   </script>
 
 </body>
