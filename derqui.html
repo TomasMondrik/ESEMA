@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Club Presidente Derqui | El Orgullo de Pilar</title>
+  <meta name="description" content="Club Social y Deportivo Presidente Derqui - Disciplinas deportivas, actividades recreativas y comunidad en Pilar." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#020617',
+            accent: '#e60000',
+            muted: '#94a3b8'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Animaciones base -->
+  <style>
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(.19,1,.22,1);
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    /* Uniformar tamaño de imágenes */
+    .deporte-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-primary font-sans overflow-x-hidden">
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5491122334455" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl z-50 shadow-lg hover:bg-green-600 transition" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50 bg-black/95 backdrop-blur border-b-4 border-accent">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-8 py-4">
+      <span class="font-bold tracking-widest text-white text-xl">C.S.D. <span class="text-accent">DERQUI</span></span>
+      <ul class="hidden md:flex gap-8 text-white">
+        <li><a href="#inicio" class="hover:text-accent transition">Inicio</a></li>
+        <li><a href="#deportes" class="hover:text-accent transition">Disciplinas</a></li>
+        <li><a href="#fixture" class="hover:text-accent transition">Fixture</a></li>
+        <li><a href="#socios" class="hover:text-accent transition">Hacete Socio</a></li>
+        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+      </ul>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-gray-700">
+      <ul class="flex flex-col gap-4 px-8 py-4 text-white">
+        <li><a href="#inicio" class="hover:text-accent transition">Inicio</a></li>
+        <li><a href="#deportes" class="hover:text-accent transition">Disciplinas</a></li>
+        <li><a href="#fixture" class="hover:text-accent transition">Fixture</a></li>
+        <li><a href="#socios" class="hover:text-accent transition">Hacete Socio</a></li>
+        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20">
+    <img src="data:image/jpeg;base64,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" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative text-center text-white px-8 fade">
+      <p class="text-sm uppercase tracking-widest mb-4">Bienvenidos al Club</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        Presidente Derqui
+        <br><span class="text-accent">El Orgullo de Derqui  </span>
+      </h1>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Más de 90 años de historia, pasión y comunidad. Únete a la familia rojinegra.</p>
+      <a href="#socios" class="bg-accent text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 transition">Únete a la Familia</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-20 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="fade">
+          <h3 class="text-4xl font-bold text-accent mb-2">+12</h3>
+          <p>Disciplinas</p>
+        </div>
+        <div class="fade">
+          <h3 class="text-4xl font-bold text-accent mb-2">2500</h3>
+          <p>Socios Activos</p>
+        </div>
+        <div class="fade">
+          <h3 class="text-4xl font-bold text-accent mb-2">1929</h3>
+          <p>Año de Fundación</p>
+        </div>
+        <div class="fade">
+          <h3 class="text-4xl font-bold text-accent mb-2">#1</h3>
+          <p>En el Corazón</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCIPLINAS -->
+  <section id="deportes" class="py-40 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-bold text-center mb-16 fade">Nuestras Disciplinas</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="fade group relative overflow-hidden rounded-2xl hover-lift">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXPjgulFU0ZsTNyAwIxBwvFHj6JVBALEFpVA&s" class="w-full h-64 object-cover group-hover:scale-110 transition" />
+          <div class="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-2">Básquet</h3>
+              <p>Liga Federal / Inferiores</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade group relative overflow-hidden rounded-2xl hover-lift">
+          <img src="https://images.unsplash.com/photo-1592656670411-b15545a671de?q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition" />
+          <div class="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-2">Voley</h3>
+              <p>Femenino y Masculino</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade group relative overflow-hidden rounded-2xl hover-lift">
+          <img src="https://images.unsplash.com/photo-1517177646641-83fe182e4003?q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition" />
+          <div class="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-2">Patín Artístico</h3>
+              <p>Competitivo y Recreativo</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade group relative overflow-hidden rounded-2xl hover-lift">
+          <img src="https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition" />
+          <div class="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+            <div class="text-center text-white">
+              <h3 class="text-2xl font-bold mb-2">Fútbol Infantil</h3>
+              <p>Semillero Rojinegro</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIXTURE -->
+  <section id="fixture" class="py-40 bg-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-bold text-center mb-16 fade">Próximos Partidos - Básquet</h2>
+      <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
+        <div class="space-y-6">
+          <div class="flex flex-col md:flex-row items-center justify-between p-6 bg-white rounded-lg shadow">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+              <span class="text-accent font-bold">Viernes 20/03 - 21:00hs</span>
+              <span class="text-gray-600">Microestadio Derqui</span>
+            </div>
+            <div class="flex items-center gap-6">
+              <span class="font-semibold">DEP. DERQUI</span>
+              <span class="text-accent font-bold text-xl">VS</span>
+              <span class="font-semibold">SPORTIVO PILAR</span>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row items-center justify-between p-6 bg-white rounded-lg shadow">
+            <div class="flex items-center gap-4 mb-4 md:mb-0">
+              <span class="text-accent font-bold">Martes 24/03 - 21:30hs</span>
+              <span class="text-gray-600">Visitante</span>
+            </div>
+            <div class="flex items-center gap-6">
+              <span class="font-semibold">CLUB ESCOBAR</span>
+              <span class="text-accent font-bold text-xl">VS</span>
+              <span class="font-semibold">DEP. DERQUI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIOS -->
+  <section id="socios" class="py-40 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="fade">
+          <h3 class="text-3xl font-bold text-accent mb-6">Asociate al Rojinegro</h3>
+          <p class="text-lg mb-8">Ser socio de Derqui es apoyar el crecimiento de nuestros jóvenes y disfrutar de todas nuestras instalaciones.</p>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3">
+              <i class="fas fa-check-circle text-accent"></i>
+              <span>Acceso a todas las sedes</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-check-circle text-accent"></i>
+              <span>Descuentos en actividades</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-check-circle text-accent"></i>
+              <span>Beneficios en comercios adheridos</span>
+            </li>
+          </ul>
+        </div>
+        <div class="fade bg-white text-gray-900 p-8 rounded-2xl shadow-lg">
+          <form>
+            <div class="mb-4">
+              <input type="text" placeholder="Nombre Completo" class="w-full p-3 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+              <input type="email" placeholder="Correo Electrónico" class="w-full p-3 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+              <input type="tel" placeholder="WhatsApp / Teléfono" class="w-full p-3 border rounded-lg" required>
+            </div>
+            <div class="mb-6">
+              <select class="w-full p-3 border rounded-lg">
+                <option value="">Seleccionar Categoría</option>
+                <option value="infantil">Infantil (Hasta 12 años)</option>
+                <option value="cadete">Cadete (13 a 17 años)</option>
+                <option value="activo">Activo (+18 años)</option>
+                <option value="grupo">Grupo Familiar</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-accent text-white py-3 rounded-lg font-bold hover:bg-red-700 transition">Enviar Solicitud</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-40 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-8">
+      <h2 class="text-4xl font-bold text-center mb-16 fade">Ubicación y Contacto</h2>
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1d3289.4452147775586!2d-58.8353392!3d-34.4661448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc99793f0b2493%3A0xc3f83790f1352d1b!2sClub%20Social%20y%20Deportivo%20Presidente%20Derqui!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-16 bg-black text-white">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <span class="font-bold tracking-widest text-xl mb-4 block">C.S.D. <span class="text-accent">DERQUI</span></span>
+          <p class="text-gray-400">El orgullo de Pilar desde 1929.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Enlaces</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#inicio" class="hover:text-accent transition">Inicio</a></li>
+            <li><a href="#deportes" class="hover:text-accent transition">Disciplinas</a></li>
+            <li><a href="#fixture" class="hover:text-accent transition">Fixture</a></li>
+            <li><a href="#socios" class="hover:text-accent transition">Hacete Socio</a></li>
+            <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Redes Sociales</h4>
+          <div class="flex justify-center gap-4">
+            <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <p>Calle Dorrego 165, Presidente Derqui, Pilar. CP 1635.</p>
+        <p class="mt-2">© 2026 Club Social y Deportivo Presidente Derqui. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Animaciones -->
+  <script>
+    const faders = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.15 });
+    faders.forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+</body>
+</html>
